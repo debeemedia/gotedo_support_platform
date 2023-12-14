@@ -19,7 +19,10 @@
 */
 
 import Route from '@ioc:Adonis/Core/Route'
+// import SupportRequestsController from 'App/Controllers/Http/SupportRequestsController'
 
 Route.get('/', async () => {
   return { hello: 'world' }
 })
+
+Route.post('/submit_request', 'SupportRequestsController.submitRequest')

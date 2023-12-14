@@ -66,7 +66,7 @@ export default class SupportRequestsController {
                 message: 'Failed to submit request',
                 error: error.message
             })
-            console.log(error.message);
+            console.error(error);
             
         }
     }
