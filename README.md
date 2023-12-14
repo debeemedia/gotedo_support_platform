@@ -44,3 +44,6 @@ Status Code: 201 (Created); a JSON Object
   "message": "Request submitted successfully"
 }
 ```
+
+## Entity Relationship Diagram
+* [Database Diagram](https://dbdiagram.io/d/657b09bc56d8064ca0090a7b)
