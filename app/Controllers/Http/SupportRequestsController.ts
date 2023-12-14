@@ -10,8 +10,7 @@ export default class SupportRequestsController {
             const validationSchema = schema.create({
                 email_address: schema.string([
                     rules.minLength(10),
-                    rules.trim(),
-                    rules.unique({ table: 'support_requests', column: 'email_address' })
+                    rules.trim()
                 ]),
                 first_name: schema.string(),
                 last_name: schema.string(),
@@ -23,6 +22,7 @@ export default class SupportRequestsController {
             const newRequestDetails = await request.validate({schema: validationSchema})
 
             let user = await User.findBy('email_address', newRequestDetails.email_address)
+            // create the user if they don't exist
             if (!user) {
                 user = await User.create({
                     email_address: newRequestDetails.email_address,
@@ -64,7 +64,7 @@ export default class SupportRequestsController {
         } catch (error) {
             response.status(500).json({
                 message: 'Failed to submit request',
-                error: error.message
+                error: error
             })
             console.error(error);
             

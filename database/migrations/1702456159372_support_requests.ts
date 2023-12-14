@@ -6,7 +6,7 @@ export default class SupportRequests extends BaseSchema {
   public async up () {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id').primary()
-      table.string("email_address").unique().notNullable();
+      table.string("email_address").notNullable();
       table.string("first_name").notNullable();
       table.string("last_name").notNullable();
       table.string("title").notNullable();
